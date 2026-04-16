@@ -1,0 +1,12 @@
+<p class="title"> לוח המשימות של {{name}}:</p>
+<div class="task-card" *ngFor="let task of tasks">
+  <h3>{{task.nameOfTask}}</h3>
+  <p>{{task.description}}</p>
+  <p>תאריך יעד: {{task.dueDate}}</p>
+  <p>סטטוס: {{task.isComplete ? 'הושלם' : 'לא הושלם'}}</p>
+  <button 
+  [ngStyle]="{'background-color': task.isComplete ? 'orange' : 'green'}" 
+  (click)="task.isComplete = !task.isComplete">
+  {{ task.isComplete ? 'הושלם' : 'לא הושלם' }} </button>
+</div>
+
