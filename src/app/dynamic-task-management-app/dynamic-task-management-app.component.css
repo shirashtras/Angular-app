@@ -1,4 +1,4 @@
-/* כותרת */
+
 .title {
   font-size: 24px;
   font-weight: bold;
@@ -7,7 +7,6 @@
   color: #333;
 }
 
-/* כרטיס משימה */
 .task-card {
   background: #f9f9f9;
   border: 1px solid #ddd;
@@ -17,21 +16,18 @@
   direction: rtl;
 }
 
-/* שם המשימה */
 .task-card h3 {
   margin: 0 0 10px 0;
   font-size: 20px;
   color: #222;
 }
 
-/* טקסטים */
 .task-card p {
   margin: 5px 0;
   font-size: 16px;
   color: #444;
 }
 
-/* כפתור */
 button {
   padding: 8px 14px;
   border: none;
@@ -42,7 +38,6 @@ button {
   margin-top: 10px;
 }
 
-/* צבעים */
 button.complete {
   background-color: orange;
 }
