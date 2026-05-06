@@ -1,0 +1,106 @@
+<div dir="rtl" class="container">
+  <h2>ניהול רעיונות לאירועים</h2>
+
+  <div class="form-card">
+    <h3>{{ editingId ? 'עריכת רעיון' : 'הוספת רעיון חדש' }}</h3>
+
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="form-row">
+        <label>מזהה רעיון:</label>
+        <input type="text" formControlName="id" [disabled]="editingId !== null" />
+      </div>
+
+      <div class="form-row">
+        <label>שם רעיון:</label>
+        <input type="text" formControlName="name" />
+      </div>
+
+      <div class="form-row">
+        <label>סוג פעילות:</label>
+        <select formControlName="activityType">
+          <option value="">בחר...</option>
+          <option *ngFor="let t of activityTypes" [value]="t">{{ t }}</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>קהל יעד:</label>
+        <select formControlName="audience">
+          <option value="">בחר...</option>
+          <option *ngFor="let a of targetAudiences" [value]="a">{{ a }}</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>משך זמן (דקות):</label>
+        <input type="number" formControlName="duration" />
+      </div>
+
+      <div class="form-row">
+        <label>סטטוס:</label>
+        <select formControlName="status" [disabled]="!isAdmin">
+          <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+        </select>
+      </div>
+
+      <button type="submit">
+        {{ editingId ? 'שמור שינוי' : 'הוסף רעיון' }}
+      </button>
+
+      <button type="button" (click)="resetForm()">נקה</button>
+    </form>
+  </div>
+
+  <table class="ideas-table" *ngIf="ideas.length > 0">
+    <thead>
+      <tr>
+        <th>מזהה</th>
+        <th>שם רעיון</th>
+        <th>סוג פעילות</th>
+        <th>קהל יעד</th>
+        <th>משך (דקות)</th>
+        <th>סטטוס</th>
+        <th>פעולות</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let idea of ideas">
+        <td>{{ idea.id }}</td>
+        <td>{{ idea.name }}</td>
+        <td>{{ idea.activityType }}</td>
+        <td>{{ idea.audience }}</td>
+        <td>{{ idea.duration }}</td>
+
+        <td>
+          <ng-container *ngIf="isAdmin; else statusText">
+            <select
+              [value]="idea.status"
+              (change)="onStatusChange(idea.id, $any($event.target).value)"
+            >
+              <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+            </select>
+          </ng-container>
+
+          <ng-template #statusText>
+            {{ idea.status }}
+          </ng-template>
+        </td>
+
+        <td>
+          <button (click)="onEdit(idea)">ערוך</button>
+          <button (click)="onDelete(idea.id)">מחק</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="ideas.length === 0">
+    אין עדיין רעיונות.
+  </div>
+</div>
