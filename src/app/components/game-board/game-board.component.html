@@ -1,0 +1,11 @@
+<div class="game-board">
+  <div 
+    class="ball" 
+    [style.left.%]="ballPosition.x"
+    [style.top.%]="ballPosition.y"
+    [class.paused]="!gameActive"
+    (click)="hitBall()">
+  </div>
+  <p class="instruction" *ngIf="gameActive">לחץ על הכדור</p>
+  <p class="paused-message" *ngIf="!gameActive">המשחק מושהה</p>
+</div>

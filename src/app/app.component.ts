@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { Les1Component } from './les1/les1.component';
+import { GameBoardComponent } from './components/game-board/game-board.component';
+import { ScoreDisplayComponent } from './components/score-display/score-display.component';
+import { GameControlsComponent } from './components/game-controls/game-controls.component';
+
 @Component({
   selector: 'app-root',
-  imports: [Les1Component],
+  standalone: true,
+  imports: [GameBoardComponent, ScoreDisplayComponent, GameControlsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Angular-app';
-  p="המשימות שלי:"
-
+  title = 'Ball Hitting Game';
 }

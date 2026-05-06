@@ -1,0 +1,32 @@
+.score-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.score-container:hover {
+  transform: scale(1.05);
+}
+
+.score-container h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.score-value {
+  font-size: 3.5em;
+  font-weight: bold;
+  margin: 10px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.score-label {
+  margin: 10px 0 0 0;
+  font-size: 1em;
+  opacity: 0.9;
+}

@@ -1,0 +1,60 @@
+.controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.reset-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.reset-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(245,87,108,0.4);
+}
+
+.reset-btn:active {
+  transform: scale(0.95);
+}
+
+.pause-btn {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: white;
+}
+
+.pause-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(250,112,154,0.4);
+}
+
+.pause-btn:active {
+  transform: scale(0.95);
+}
+
+.resume-btn {
+  background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+  color: white;
+}
+
+.resume-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(48,207,208,0.4);
+}
+
+.resume-btn:active {
+  transform: scale(0.95);
+}
